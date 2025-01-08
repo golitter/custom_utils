@@ -90,3 +90,17 @@ if __name__ == "__main__":
     # Call the function to send the email
     result = send_email(config)
     print(result)
+##############################################
+# send_email.ini
+# [EMAIL]
+# smtp_server = smtp.gmail.com
+# port = 587
+# sender = "your_email@gmail.com"
+# recipient = "recipient_email"
+# # App-specific password
+# app_password = "your_app_password"
+# subject = "Test Email"
+# content = "This is a test email sent via Python."
+# timeout = 5
+# # Remove the '"' marks
+##############################################
