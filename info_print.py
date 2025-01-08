@@ -4,36 +4,42 @@ Created: 2025.1.8
 Version: 1.0
 
 Description:
-This script defines a `Printer` class that allows controlled printing based on an internal flag. The `enable_print` flag determines whether print statements will output to the console. 
+This script defines a `Console` class that allows controlled printing based on an internal flag. 
+The `enable_print` flag determines whether `info` method calls will output to the console. 
+Direct calls to Python's built-in `print` function are unaffected by this control.
 """
 
-class Printer:
+class Console:
     """
     A class that controls printing based on an internal flag.
     
     Attributes:
-        enable_print (bool): Flag to control whether to print or not.
+        __enable_print (bool): Private flag to control whether to print or suppress output.
     """
 
     def __init__(self, enable_print=True):
         """
-        Initialize the Printer instance with a given print control flag.
+        Initialize the Console instance with a given print control flag.
         
         Args:
-            enable_print (bool): Set to True to allow printing, False to suppress.
+            enable_print (bool): Set to True to allow printing, False to suppress output.
         """
         self.__enable_print = enable_print
 
     def info(self, *args, **kwargs):
         """
-        Print messages if `enable_print` is True, else suppress the output.
+        Print messages if `__enable_print` is True; suppress output otherwise.
+        
+        Args:
+            *args: Positional arguments to pass to the print function.
+            **kwargs: Keyword arguments to pass to the print function.
         """
         if self.__enable_print:
             print(*args, **kwargs)
 
     def set_print_control(self, enable_print: bool):
         """
-        Set the print control flag.
+        Set the internal print control flag.
         
         Args:
             enable_print (bool): Set to True to allow printing, False to suppress.
@@ -41,27 +47,33 @@ class Printer:
         self.__enable_print = enable_print
 
 # Example usage
-def main(printer: Printer):
-    printer.info("abc", type("abc"))  # Controlled by Printer's enable_print flag
-    print("This is a regular print statement, not controlled.")  # Uncontrolled
+def main(console: Console):
+    """
+    Demonstrates the behavior of the Console class.
+    
+    Args:
+        console (Console): An instance of the Console class.
+    """
+    console.info("abc", type("abc"))  # Controlled by Console's internal flag
+    print("This is a regular print statement, not controlled by Console.")  # Uncontrolled
 
 if __name__ == "__main__":
-    # Create Printer instance with initial flag set to True
-    printer = Printer(enable_print=True)
+    # Create Console instance with initial flag set to True
+    console = Console(enable_print=True)
     
     print("When the global control variable is True:")
-    main(printer)
+    main(console)
 
     # Change the print control flag to False
-    printer.set_print_control(False)
+    console.set_print_control(False)
     print("\nWhen the global control variable is False:")
-    main(printer)
+    main(console)
 
 
 ##########################################################################################
 # Example usage in another file:
-# from utils.info_print import Printer  # Import the Printer class
-# console = Printer()  # Create an instance of Printer
+# from utils.info_print import Console  # Import the Console class
+# console = Console()  # Create an instance of Console
 # console.info("abc", type("abc"))  # Print information to the console
 # console.set_print_control(False)  # Disable console output
 # console.info("abc", type("abc"))  # No output will be shown
