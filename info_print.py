@@ -8,6 +8,8 @@ This script defines a `Console` class that allows controlled printing based on a
 The `enable_print` flag determines whether `info` method calls will output to the console. 
 Direct calls to Python's built-in `print` function are unaffected by this control.
 """
+import subprocess # Import the subprocess module to run shell commands
+
 
 class Console:
     """
@@ -45,6 +47,24 @@ class Console:
             enable_print (bool): Set to True to allow printing, False to suppress.
         """
         self.__enable_print = enable_print
+    def wrun_explorer(self, path=None):
+        """
+        Opens the Windows File Explorer using the specified path or the default location.
+
+        Args:
+            path (str, optional): The path to the directory or file to open in File Explorer.
+                If None, the default File Explorer interface is opened. Defaults to None.
+
+        """
+        try:
+            if path is None:
+                subprocess.run(["explorer.exe"])
+            else:
+                subprocess.run(["explorer.exe", path])
+        except FileNotFoundError:
+            print("Error: 'explorer.exe' not found. Please ensure it is available in your system.")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
 
 # Example usage
 def main(console: Console):

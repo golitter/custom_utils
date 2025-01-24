@@ -3,3 +3,4 @@ record.txt
 send_email.ini
 
 __pycache__/
+test.py
