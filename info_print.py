@@ -66,6 +66,14 @@ class Console:
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
 
+    def divider(self, length=20, char="=-"):
+        """
+        Print a divider line
+        :param length: The length of the divider line, default is 20
+        :param char: The character used for the divider line, default is '=-'
+        """
+        print(char * length)
+
 # Example usage
 def main(console: Console):
     """
