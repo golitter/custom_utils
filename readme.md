@@ -5,3 +5,6 @@
 - `Logger()`类：使用`logging`库对日志功能进行封装。
 
 - `send_email.py`文件，使用gmail邮箱自动发送邮件，使用ini配置文件管理配置信息。
+
+- `pre-commit`结合`ruff`的智能配置链。
+
