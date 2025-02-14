@@ -12,6 +12,11 @@ pip install pre-commit
 pre-commit install
 ```
 
+**初此配置/更新**：
+```shell
+pre-commit run --all-files
+```
+
 # `ruff`
 
 [python的ruff简单使用-CSDN博客](https://golemon.blog.csdn.net/article/details/145433813?spm=1001.2014.3001.5502)
