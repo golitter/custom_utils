@@ -8,3 +8,4 @@
 
 - `pre-commit`结合`ruff`的智能配置链。
 
+- `pdbDebug.sh`：使用pdb进行调试备份调试内容及所得调试信息到一个文件内
