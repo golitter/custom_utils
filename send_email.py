@@ -9,12 +9,17 @@ It includes a `read_config` function to load the necessary settings (such as SMT
 and a `send_email` function to handle the process of connecting to the SMTP server and sending the email. 
 The email sending process is customizable via the configuration file, making the script flexible for different use cases.
 
+Use Before: 
+    - Need to create a Gmail account, enable two-factor authentication, 
+    and generate an app-specific password, while also saving the **16-digit password**.
+    - You can perform these actions through this link: https://blog.csdn.net/qq_63432403/article/details/145017836?ops_request_misc=%257B%2522request%255Fid%2522%253A%25221d356076e943ad4a60b4fffc13c77fb4%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=1d356076e943ad4a60b4fffc13c77fb4&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-145017836-null-null.nonecase&utm_term=%E9%82%AE%E7%AE%B1&spm=1018.2226.3001.4450
+
 The configuration file must include the following keys under the `[EMAIL]` section:
     - smtp_server: SMTP server address (e.g., 'smtp.gmail.com')
     - port: Port number for the SMTP connection (usually 587 for TLS)
     - sender: The sender email address
     - recipient: The recipient email address
-    - app_password: Application-specific password for the sender account
+    - app_password: Application-specific password for the sender account (**16-digit password*)
     - subject: The subject of the email
     - content: The content/body of the email
     - timeout: Timeout value for the connection in seconds
