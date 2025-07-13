@@ -24,5 +24,6 @@
     python pgit.py restore -ts <时间戳>
     ```
 
-    
+- `convert.py`：
 
+  - `ipynb2py`：将`.ipynb`格式文件转为`.py`格式文件。
