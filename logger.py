@@ -1,6 +1,6 @@
 """
 Author: Golemon
-Created: 2024.12.27 
+Updated: 2025.7.28
 Version: 1.0
 
 Description:
@@ -16,12 +16,12 @@ class Logger:
     A customizable logger class for logging messages with different levels.
 
     Attributes:
-        logger_name (str): The name of the logger.
+        logger_name (str): The name of the logger, name must be imported using __name__.
         log_file (str): File path to save the log messages (do not include the file extension).
         log_level (int): Logging level (default is logging.DEBUG).
     """
 
-    def __init__(self, logger_name: str, log_file: str = "golemon", log_level=logging.DEBUG):
+    def __init__(self, logger_name: str, log_file: str = "application", log_level=logging.DEBUG):
         """
         Initialize the Logger instance.
 
@@ -75,7 +75,8 @@ class Logger:
 # Example usage
 if __name__ == "__main__":
     # Create a logger instance
-    app_logger = Logger(logger_name="glm", log_file="application")
+    # 2025.7.28 : The log name must be imported using __name__.
+    app_logger = Logger(logger_name=__name__)
 
     # Log messages at different levels
     app_logger.debug("This is a debug message.")
